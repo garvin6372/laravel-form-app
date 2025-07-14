@@ -17,7 +17,7 @@ use App\Http\Controllers\WebController;
 
 Route::get('/form', [FormSubmissionController::class, 'create']);
 Route::post('/form', [FormSubmissionController::class, 'store']);
-
+Route::get('/download', [WebController::class, 'downloadByPath']);
 // Route::get('/', [WebController::class, 'view']);
 // Route::get('/', function () {
 //     return view('welcome');
