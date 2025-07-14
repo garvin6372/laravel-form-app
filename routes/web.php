@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\FormSubmissionController;
+use App\Http\Controllers\WebController;
 
 Route::get('/form', [FormSubmissionController::class, 'create']);
 Route::post('/form', [FormSubmissionController::class, 'store']);
 
+// Route::get('/', [WebController::class, 'view']);
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/site/index.html');
 });

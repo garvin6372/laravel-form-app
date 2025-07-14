@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('email');
             $table->string('phone');
             $table->string('ni_number');
+            $table->string('utr_number');
             $table->string('reason');
             $table->string('brp_front_url')->nullable();
             $table->string('brp_front_json')->nullable();

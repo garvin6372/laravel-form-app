@@ -20,6 +20,7 @@ class FormSubmissionController extends Controller
             'email' => 'required|email',
             'phone' => 'required',
             'ni_number' => 'required',
+            'utr_number' => 'required',
             'reason' => 'required|in:tax,self assessment,payee',
             'brp_front' => 'nullable|image',
             'brp_back' => 'nullable|image',
@@ -27,7 +28,7 @@ class FormSubmissionController extends Controller
             'receipts' => 'nullable|mimes:pdf',
         ]);
 
-        $data = $request->only(['full_name', 'email', 'phone', 'ni_number', 'reason']);
+        $data = $request->only(['full_name', 'email', 'phone', 'ni_number','utr_number', 'reason']);
 
         if ($request->hasFile('brp_front')) {
             $data['brp_front_url'] = $request->file('brp_front')->store('uploads/brp_front', 'public');
