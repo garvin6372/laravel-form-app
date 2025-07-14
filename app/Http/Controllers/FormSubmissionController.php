@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\FormSubmission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Http;
 
 class FormSubmissionController extends Controller
 {
@@ -43,8 +44,13 @@ class FormSubmissionController extends Controller
             $data['receipts_url'] = $request->file('receipts')->store('uploads/receipts', 'public');
         }
 
-        FormSubmission::create($data);
+         $submission = FormSubmission::create($data);
 
+        $webhookUrl = 'https://jinnityai.app.n8n.cloud/webhook-test/00d7a013-96e7-4bed-92a9-4ad1fdf63cfc';
+        $response = Http::post($webhookUrl, [
+            'id' =>  $submission->id,
+        ]);
+// 
         return back()->with('success', 'Form submitted successfully!');
     }
 

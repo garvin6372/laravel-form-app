@@ -193,7 +193,7 @@
                       <div class="form-group">
                         <div class="entry">
                           <label>NI Number</label>
-                          <input id="nt_number" type="number" name="ni_number" placeholder="NI number"
+                          <input id="nt_number" type="text" name="ni_number" placeholder="NI number"
                             required="required" />
                         </div>
                         <div class="help-block with-errors"></div>
@@ -201,7 +201,7 @@
                       <div class="form-group">
                         <div class="entry">
                           <label>UTR Number</label>
-                          <input id="utr_number" type="number" name="utr_number" placeholder="UTR number"
+                          <input id="utr_number" type="text" name="utr_number" placeholder="UTR number"
                             required="required" />
                         </div>
                         <div class="help-block with-errors"></div>
