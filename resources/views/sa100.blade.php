@@ -400,13 +400,13 @@
       // Step 1: Parse the inner JSON string
       const brp = JSON.parse(data.brp_back_json);
       // Fill form fields using jQuery
-      if(brp && sbrp.dateOfBirth) {
+      if(brp && brp.dateOfBirth) {
         fillDateInput('#dob', brp.dateOfBirth);
       }
-      if(brp && sbrp.dateOfBirth) {
+      if(brp && brp.dateOfBirth) {
         fillDateInput('#address_date', brp.addressDate);
       }
-      if(brp && sbrp.dateOfBirth) {
+      if(brp && brp.dateOfBirth) {
         fillDateInput('#ins_no', brp.insNo);
       }
       if(data.phone) {
