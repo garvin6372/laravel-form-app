@@ -384,7 +384,7 @@
   <script>
     function fillDateInput(containerSelector, dateString) {
       // Normalize the date: remove anything that's not a digit
-      const digits = dateString.replace(/[^0-9]/g, '').split('');
+      const digits = dateString.replace(/[^0-9a-zA-Z]/g, '').split('');
       // Fill the input boxes one by one
       $(containerSelector).find('input.input-one-digit').each(function(index) {
         $(this).val(digits[index] || '');
