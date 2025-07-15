@@ -17,14 +17,14 @@ return new class extends Migration {
             $table->string('ni_number');
             $table->string('utr_number');
             $table->string('reason');
-            $table->string('brp_front_url')->nullable();
-            $table->string('brp_front_json')->nullable();
-            $table->string('brp_back_url')->nullable();
-            $table->string('brp_back_json')->nullable();
-            $table->string('bank_statement_url')->nullable();
-            $table->string('bank_statement_json')->nullable();
-            $table->string('receipts_url')->nullable();
-            $table->string('receipts_json')->nullable();
+            $table->longText('brp_front_url')->nullable();
+            $table->longText('brp_front_json')->nullable();
+            $table->longText('brp_back_url')->nullable();
+            $table->longText('brp_back_json')->nullable();
+            $table->longText('bank_statement_url')->nullable();
+            $table->longText('bank_statement_json')->nullable();
+            $table->longText('receipts_url')->nullable();
+            $table->longText('receipts_json')->nullable();
         });
     }
 

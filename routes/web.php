@@ -18,6 +18,7 @@ use App\Http\Controllers\WebController;
 Route::get('/form', [FormSubmissionController::class, 'create']);
 Route::post('/form', [FormSubmissionController::class, 'store']);
 Route::get('/sa100/{id}', [FormSubmissionController::class, 'formSa']);
+Route::get('/bs-graph/{id}', [FormSubmissionController::class, 'showBankGraph']);
 
 Route::get('/download', [WebController::class, 'downloadByPath']);
 // Route::get('/', [WebController::class, 'view']);

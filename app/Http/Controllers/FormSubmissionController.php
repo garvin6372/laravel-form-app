@@ -29,7 +29,7 @@ class FormSubmissionController extends Controller
             'receipts' => 'nullable|mimes:pdf',
         ]);
 
-        $data = $request->only(['full_name', 'email', 'phone', 'ni_number','utr_number', 'reason']);
+        $data = $request->only(['full_name', 'email', 'phone', 'ni_number', 'utr_number', 'reason']);
 
         if ($request->hasFile('brp_front')) {
             $data['brp_front_url'] = $request->file('brp_front')->store('uploads/brp_front', 'public');
@@ -44,17 +44,18 @@ class FormSubmissionController extends Controller
             $data['receipts_url'] = $request->file('receipts')->store('uploads/receipts', 'public');
         }
 
-         $submission = FormSubmission::create($data);
+        $submission = FormSubmission::create($data);
 
-        $webhookUrl = 'https://jinnityai.app.n8n.cloud/webhook-test/00d7a013-96e7-4bed-92a9-4ad1fdf63cfc';
+        // $webhookUrl = 'https://jinnityai.app.n8n.cloud/webhook-test/00d7a013-96e7-4bed-92a9-4ad1fdf63cfc';
+        $webhookUrl = 'https://jinnityai.app.n8n.cloud/webhook/00d7a013-96e7-4bed-92a9-4ad1fdf63cfc';
         $response = Http::post($webhookUrl, [
             'id' =>  $submission->id,
         ]);
-// 
+        // 
         return back()->with('success', 'Form submitted successfully!');
     }
 
-        // API: Get form submission by ID (GET /api/form-submissions/{id})
+    // API: Get form submission by ID (GET /api/form-submissions/{id})
     public function show($id)
     {
         $formSubmission = FormSubmission::find($id);
@@ -76,13 +77,30 @@ class FormSubmissionController extends Controller
     {
         $formSubmission = FormSubmission::find($id);
 
-    if (!$formSubmission) {
-        return response()->json([
-            'status'  => false,
-            'message' => 'Form submission not found',
-        ], 404);
-    }
-    
+        if (!$formSubmission) {
+            return response()->json([
+                'status'  => false,
+                'message' => 'Form submission not found',
+            ], 404);
+        }
+
         return view('sa100', compact('formSubmission'));
+    }
+
+    public function showBankGraph($id)
+    {
+        $formSubmission = FormSubmission::find($id);
+        if(!empty($formSubmission->bank_statement_json)) {
+
+            $json = json_decode(stripslashes($formSubmission->bank_statement_json), true);
+            $transactions = $json['output']['transactions'];
+    
+            return view('bank-graph', compact('transactions'));
+        } else {
+             return response()->json([
+                'status'  => false,
+                'message' => 'Bank Statement Not Found',
+            ], 404);
+        }
     }
 }
