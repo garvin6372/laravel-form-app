@@ -160,7 +160,7 @@
                     </div>
                     <label style="margin-top: 100px">
                       <span>Issue address</span>
-                      <textarea style="border: 1px solid #000; width: 100%"></textarea>
+                      <textarea style="border: 1px solid #000; width: 100%" id="issue_address"></textarea>
                     </label>
                   </div>
                 </div>
@@ -399,18 +399,24 @@
       $('#nino').val(data.ni_number);
       // Step 1: Parse the inner JSON string
       const brp = JSON.parse(data.brp_back_json);
-      // Fill form fields using jQuery
+      const bank_statement_json = JSON.parse(data.bank_statement_json);
+
+      if(data.phone) {
+        fillDateInput('#phone_number', data.phone);
+      }
+
+      if(bank_statement_json && bank_statement_json.fullAddress) {
+        $('#issue_address').val(bank_statement_json.fullAddress);
+      }
+        // Fill form fields using jQuery
       if(brp && brp.dateOfBirth) {
         fillDateInput('#dob', brp.dateOfBirth);
       }
-      if(brp && brp.dateOfBirth) {
+      if(brp && brp.addressDate) {
         fillDateInput('#address_date', brp.addressDate);
       }
-      if(brp && brp.dateOfBirth) {
+      if(brp && brp.insNo) {
         fillDateInput('#ins_no', brp.insNo);
-      }
-      if(data.phone) {
-        fillDateInput('#phone_number', data.phone);
       }
     });
   </script>
