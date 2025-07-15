@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<!-- Mirrored from template.dsngrid.com/JinnityAI/dark/site/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Jul 2025 15:58:22 GMT -->
+<!-- Mirrored from template.dsngrid.com/JinnityAI/dark/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Jul 2025 15:58:22 GMT -->
 
 <head>
   <!-- Required meta tags -->
@@ -56,12 +56,12 @@
           <nav class="accent-menu main-navigation">
             <ul class="extend-container">
               <li>
-                <a href="index.html">Home</a>
+                <a href="/site/index.html">Home</a>
               </li>
               <!-- <li><a href="index.html#about">About Us</a></li> -->
               <li><a href="/form">Query</a></li>
-              <li><a href="site/sa100.html">SA100</a></li>
-              <li><a href="site/contact.html">Contact</a></li>
+              <li><a href="/site/sa100.html">SA100</a></li>
+              <li><a href="/site/contact.html">Contact</a></li>
             </ul>
           </nav>
         </div>
@@ -69,7 +69,7 @@
       <div class="header-top header-top-hamburger">
         <div class="header-container">
           <div class="logo main-logo">
-            <a href="index.html">
+            <a href="/site/index.html">
               <img class="dark-logo" src="assets/img/logo-dark.png" alt="" />
               <h4 style="font-weight: 600">JinnityAI</h4>
             </a>
@@ -263,7 +263,7 @@
         <section class="contact-up section-margin section-padding">
           <div class="container">
             <div class="c-wapp">
-              <a href="site/contact.html" class="effect-ajax">
+              <a href="contact.html" class="effect-ajax">
                 <span class="hiring"> Contact Us </span>
                 <span class="career"> Let's talk </span>
               </a>
@@ -329,6 +329,6 @@
   <script src="{{ asset('/site/assets/js/custom.js') }}"></script>
 </body>
 
-<!-- Mirrored from template.dsngrid.com/JinnityAI/dark/site/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Jul 2025 15:58:22 GMT -->
+<!-- Mirrored from template.dsngrid.com/JinnityAI/dark/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Jul 2025 15:58:22 GMT -->
 
 </html>
