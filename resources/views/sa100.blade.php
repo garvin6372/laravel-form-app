@@ -387,8 +387,6 @@
       const digits = dateString.replace(/[^0-9]/g, '').split('');
       // Fill the input boxes one by one
       $(containerSelector).find('input.input-one-digit').each(function(index) {
-        console.log(digits[index])
-        console.log($(this))
         $(this).val(digits[index] || '');
       });
     }
@@ -396,7 +394,9 @@
     const data = @json($formSubmission);
 
     $(document).ready(function() {
-
+      
+      $('#utr').val(data.utr_number);
+      $('#nino').val(data.ni_number);
       // Step 1: Parse the inner JSON string
       const brp = JSON.parse(data.brp_back_json);
       // Fill form fields using jQuery
@@ -412,8 +412,6 @@
       if(data.phone) {
         fillDateInput('#phone_number', data.phone);
       }
-      $('#utr').val(data.utr_number);
-      $('#nino').val(data.ni_number);
     });
   </script>
 </body>
