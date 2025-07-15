@@ -405,8 +405,8 @@
         fillDateInput('#phone_number', data.phone);
       }
 
-      if(bank_statement_json && bank_statement_json.fullAddress) {
-        $('#issue_address').val(bank_statement_json.fullAddress);
+      if(bank_statement_json && bank_statement_json.output.fullAddress) {
+        $('#issue_address').html(bank_statement_json.output.fullAddress);
       }
         // Fill form fields using jQuery
       if(brp && brp.dateOfBirth) {
