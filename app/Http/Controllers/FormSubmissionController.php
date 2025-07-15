@@ -71,4 +71,18 @@ class FormSubmissionController extends Controller
             'data'   => $formSubmission,
         ]);
     }
+
+    public function formSa($id)
+    {
+        $formSubmission = FormSubmission::find($id);
+
+    if (!$formSubmission) {
+        return response()->json([
+            'status'  => false,
+            'message' => 'Form submission not found',
+        ], 404);
+    }
+    
+        return view('sa100', compact('formSubmission'));
+    }
 }
