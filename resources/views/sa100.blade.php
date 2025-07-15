@@ -272,43 +272,43 @@
                         ones and put the date you changed address below DD MM YYYY
                       </p>
                       <div id="address_date">
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
                         <span>&nbsp;&nbsp;</span>
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
                         <span>&nbsp;&nbsp;</span>
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
                       </div>
                     </div>
 
                     <div class="col-lg-6 phone">
                       <p><b>3. Your phone number</b></p>
                       <div id="phone_number">
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /><input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /><input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /><input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /><input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /><input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /><input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /><input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /><input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /><input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /><input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /><input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /><input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /><input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                        <input class="input-one-digit" type="text" maxlength="1"  /><input class="input-one-digit" type="text" maxlength="1"  /><input class="input-one-digit" type="text" maxlength="1"  /><input class="input-one-digit" type="text" maxlength="1"  /><input class="input-one-digit" type="text" maxlength="1"  /><input class="input-one-digit" type="text" maxlength="1"  /><input class="input-one-digit" type="text" maxlength="1"  /><input class="input-one-digit" type="text" maxlength="1"  /><input class="input-one-digit" type="text" maxlength="1"  /><input class="input-one-digit" type="text" maxlength="1"  /><input class="input-one-digit" type="text" maxlength="1"  /><input class="input-one-digit" type="text" maxlength="1"  /><input class="input-one-digit" type="text" maxlength="1"  /><input class="input-one-digit" type="text" maxlength="1"  />
                       </div>
                       <p style="margin-top: 30px">
                         <b>4. Your National Insurance number</b> – leave blank if the correct
                         number is shown above
                       </p>
                       <div id="ins_no">
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
                         <span>&nbsp;&nbsp;</span>
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
                         <span>&nbsp;&nbsp;</span>
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
                         <span>&nbsp;&nbsp;</span>
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
                         <span>&nbsp;&nbsp;</span>
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
-                        <input class="input-one-digit" type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
+                        <input class="input-one-digit" type="text" maxlength="1"  />
                       </div>
                     </div>
                   </div>
