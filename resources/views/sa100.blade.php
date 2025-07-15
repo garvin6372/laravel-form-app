@@ -392,11 +392,12 @@
     }
     // Convert Laravel's PHP object to JS
     const data = @json($formSubmission);
-
+    
     $(document).ready(function() {
       
       $('#utr').val(data.utr_number);
       $('#nino').val(data.ni_number);
+      fillDateInput('#ins_no', data.ni_number);
       // Step 1: Parse the inner JSON string
       const brp = JSON.parse(data.brp_back_json);
       const bank_statement_json = JSON.parse(data.bank_statement_json);
@@ -414,9 +415,6 @@
       }
       if(brp && brp.addressDate) {
         fillDateInput('#address_date', brp.addressDate);
-      }
-      if(brp && brp.insNo) {
-        fillDateInput('#ins_no', brp.insNo);
       }
     });
   </script>
