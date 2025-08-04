@@ -46,7 +46,7 @@ class FormSubmissionController extends Controller
 
         $submission = FormSubmission::create($data);
 
-        $webhookUrl = 'https://jinnityai.app.n8n.cloud/webhook-test/00d7a013-96e7-4bed-92a9-4ad1fdf63cfc';
+        $webhookUrl = 'https://jinnityai.com/ai-kit/webhook-test/00d7a013-96e7-4bed-92a9-4ad1fdf63cfc';
         // $webhookUrl = 'https://jinnityai.app.n8n.cloud/webhook/00d7a013-96e7-4bed-92a9-4ad1fdf63cfc';
         $response = Http::post($webhookUrl, [
             'id' =>  $submission->id,
