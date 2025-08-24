@@ -125,7 +125,7 @@ class FormSubmissionController extends Controller
                 $fileUrls[] = asset('storage/' . $path);
 
                 $files[] = [
-                    'name' => 'files[]',
+                    'name' => 'files',
                     'contents' => fopen($pdf->getRealPath(), 'r'),
                     'filename' => $pdf->getClientOriginalName(),
                 ];
