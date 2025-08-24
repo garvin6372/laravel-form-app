@@ -126,12 +126,12 @@ class FormSubmissionController extends Controller
 
                 $files[] = [
                     'name' => 'files',
-                    'contents' => fopen($pdf->getRealPath(), 'r'),
-                    'filename' => $pdf->getClientOriginalName(),
+                    'contents' => fopen($file->getRealPath(), 'r'),
+                    'filename' => $file->getClientOriginalName(),
                 ];
             }
         }
-
+        // dd($files);
         // Call FastAPI
         $response = Http::attach(...$files)->post('http://pdf_extractor:8000/extract');
 
