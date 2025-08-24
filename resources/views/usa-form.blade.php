@@ -172,9 +172,12 @@
                         document.getElementById('sendWebhookBtn').addEventListener('click', function() {
                             fetch("{{ route('send.webhook') }}", {
                                 method: "POST",
-                               headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                               headers: {
+
+            "Content-Type": "application/json",
+
+            "X-CSRF-TOKEN": "{{ csrf_token() }}"
+
         },
                                 body: JSON.stringify({ files: @json($files) }),
                             })
@@ -183,13 +186,27 @@
                                 // alert("Webhook Response: " + JSON.stringify(data));
                             });
                         });
-const elementsToHide = document.querySelectorAll('.submit_button');
-
-// Iterate through the NodeList and set display to 'none'
-elementsToHide.forEach(element => {
-  element.style.display = 'none';
+const elementsToHide = document.querySelectorAll('.submit_button');
+
+
+
+// Iterate through the NodeList and set display to 'none'
+
+elementsToHide.forEach(element => {
+
+  element.style.display = 'none';
+
 });
                     </script>
+                    @if(isset($results['results']))
+                        @foreach($results['results'] as $res)
+                            <h2>{{ $res['filename'] }}</h2>
+                            <pre>{{ $res['extracted_text'] }}</pre>
+                        @endforeach
+                    @else
+                        <p>No results found.</p>
+                    @endif
+
                 @endisset
                 </div>
               </div>

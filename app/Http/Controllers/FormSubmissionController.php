@@ -118,16 +118,31 @@ class FormSubmissionController extends Controller
         ]);
 
         $fileUrls = [];
-
+        $files = [];
         if ($request->hasFile('files')) {
             foreach ($request->file('files') as $file) {
                 $path = $file->store('uploads/use_pdf', 'public'); // store in storage/app/public/uploads
                 $fileUrls[] = asset('storage/' . $path);
+
+                $files[] = [
+                    'name' => 'files[]',
+                    'contents' => fopen($pdf->getRealPath(), 'r'),
+                    'filename' => $pdf->getClientOriginalName(),
+                ];
             }
         }
 
+        // Call FastAPI
+        $response = Http::attach(...$files)->post('http://pdf_extractor:8000/extract');
+
+        if ($response->failed()) {
+            return back()->withErrors(['api_error' => 'Failed to process PDFs.']);
+        }
+
+        $results = $response->json();
+
         // return back with uploaded files
-        return view('usa-form', ['files' => $fileUrls, 'success' => 'Files uploaded successfully!']);
+        return view('usa-form', ['files' => $fileUrls, 'success' => 'Files uploaded successfully!', 'results' => compact('results')]);
     }
 
     public function sendToWebhook(Request $request)
