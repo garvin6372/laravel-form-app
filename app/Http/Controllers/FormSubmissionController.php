@@ -118,23 +118,18 @@ class FormSubmissionController extends Controller
         ]);
 
         $fileUrls = [];
-        $files = [];
         if ($request->hasFile('files')) {
             foreach ($request->file('files') as $file) {
                 $path = $file->store('uploads/use_pdf', 'public'); // store in storage/app/public/uploads
                 $fileUrls[] = asset('storage/' . $path);
-
-                $files[] = [
-                    'name' => 'files',
-                    'contents' => fopen($file->getRealPath(), 'r'),
-                    'filename' => $file->getClientOriginalName(),
-                ];
             }
         }
         // dd($files);
         // Call FastAPI
-        $response = Http::attach(...$files)->post('http://pdf_extractor:8000/extract');
-
+        $response = Http::post('http://pdf_extractor:8000/extract', [
+            'urls' => $fileUrls,
+        ]);
+        
         if ($response->failed()) {
             return back()->withErrors(['api_error' => 'Failed to process PDFs.']);
         }
