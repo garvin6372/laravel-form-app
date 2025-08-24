@@ -137,7 +137,7 @@ class FormSubmissionController extends Controller
         $results = $response->json();
 
         // return back with uploaded files
-        return view('usa-form', ['files' => $fileUrls, 'success' => 'Files uploaded successfully!', 'results' => compact('results')]);
+        return view('usa-form', ['files' => $fileUrls, 'success' => 'Files uploaded successfully!', 'results' => $results]);
     }
 
     public function sendToWebhook(Request $request)
