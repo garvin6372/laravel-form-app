@@ -183,6 +183,8 @@
                             })
                             .then(res => res.json())
                             .then(data => {
+if(data.success == false) { alert('response')}
+console.log(data)
                                 // alert("Webhook Response: " + JSON.stringify(data));
                             });
                         });
@@ -198,14 +200,7 @@ elementsToHide.forEach(element => {
 
 });
                     </script>
-                    @if(isset($results['results']))
-                        @foreach($results['results'] as $res)
-                            <h2>{{ $res['filename'] }}</h2>
-                            <pre>{{ $res['extracted_text'] }}</pre>
-                        @endforeach
-                    @else
-                        <p>No results found.</p>
-                    @endif
+                    
 
                 @endisset
                 </div>

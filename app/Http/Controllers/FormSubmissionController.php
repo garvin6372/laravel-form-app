@@ -125,33 +125,41 @@ class FormSubmissionController extends Controller
             }
         }
         // dd($files);
-        // Call FastAPI
-        $response = Http::post('http://pdf_extractor:8000/extract', [
-            'urls' => $fileUrls,
-        ]);
-        
-        if ($response->failed()) {
-            return back()->withErrors(['api_error' => 'Failed to process PDFs.']);
-        }
-
-        $results = $response->json();
 
         // return back with uploaded files
-        return view('usa-form', ['files' => $fileUrls, 'success' => 'Files uploaded successfully!', 'results' => $results]);
+        return view('usa-form', ['files' => $fileUrls, 'success' => 'Files uploaded successfully!']);
     }
 
     public function sendToWebhook(Request $request)
     {
         $files = $request->input('files', []);
 
-        // Example webhook call
-        $response = Http::post('https://jinnityai.com/ai-kit/webhook-test/aac82a15-5da3-49bd-bb1c-39a2fe50a9a7', [
-            'files' => $files,
+        // Call FastAPI
+        $response = Http::post('http://pdf_extractor:8000/extract', [
+            'urls' => $files,
         ]);
 
-        return response()->json([
-            'success' => true,
-            'response' => $response->json(),
-        ]);
+        if ($response->failed()) {
+	        return response()->json([
+                'success' => false,
+                'response' => 'Failed to process PDFs.',
+            ]);	
+        } else {
+            $results = $response->json();
+            $webhook = Http::post('https://jinnityai.com/ai-kit/webhook-test/aac82a15-5da3-49bd-bb1c-39a2fe50a9a7', $results);
+            return response()->json([
+                'success' => true,
+                'response' => $webhook->json(),
+                'api_res'  => $results
+            ]);	
+	    }
+
+
+       
+        
+        // Example webhook call
+        //$response = Http::post('https://jinnityai.com/ai-kit/webhook-test/aac82a15-5da3-49bd-bb1c-39a2fe50a9a7', [
+        //    'files' => $files,
+        //]);
     }
 }
