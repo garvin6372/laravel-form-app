@@ -103,4 +103,45 @@ class FormSubmissionController extends Controller
             ], 404);
         }
     }
+
+    // USA Form
+    public function usaForm()
+    {
+        return view('usa-form');
+    }
+
+    public function uploadUsaForm(Request $request)
+    {
+
+        $request->validate([
+            'files.*' => 'required|mimes:pdf|max:2048', // only pdf allowed
+        ]);
+
+        $fileUrls = [];
+
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $file) {
+                $path = $file->store('uploads/use_pdf', 'public'); // store in storage/app/public/uploads
+                $fileUrls[] = asset('storage/' . $path);
+            }
+        }
+
+        // return back with uploaded files
+        return view('usa-form', ['files' => $fileUrls, 'success' => 'Files uploaded successfully!']);
+    }
+
+    public function sendToWebhook(Request $request)
+    {
+        $files = $request->input('files', []);
+
+        // Example webhook call
+        $response = Http::post('https://jinnityai.com/ai-kit/webhook-test/aac82a15-5da3-49bd-bb1c-39a2fe50a9a7', [
+            'files' => $files,
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'response' => $response->json(),
+        ]);
+    }
 }

@@ -26,6 +26,10 @@ Route::get('/download', [WebController::class, 'downloadByPath']);
 //     return view('welcome');
 // });
 
+Route::get('/usa-form', [FormSubmissionController::class, 'usaForm'])->name('upload.form');
+Route::post('/upload', [FormSubmissionController::class, 'uploadUsaForm'])->name('upload.files');
+Route::post('/send-to-webhook', [FormSubmissionController::class, 'sendToWebhook'])->name('send.webhook');
+
 Route::get('/', function () {
     return redirect('/site/index.html');
 });
