@@ -167,10 +167,18 @@
                     </table>
 
                     <button id="sendWebhookBtn">Send Files To Workflow</button>
-
+                    <span class="spinner" id="btnSpinner"></span>
                     <script>
-                        document.getElementById('sendWebhookBtn').addEventListener('click', function() {
-                            fetch("{{ route('send.webhook') }}", {
+                      const btnSpinner = document.getElementById("btnSpinner");
+                      const submitBtn = document.getElementById("sendWebhookBtn");
+                      document.getElementById('sendWebhookBtn').addEventListener('click', function() {
+                          btnSpinner.style.display = "inline-block";
+                          submitBtn.disabled = true;
+                          setTimeout(() => {
+                            btnSpinner.style.display = "none";
+                            submitBtn.disabled = false;
+                          }, 3000);
+                          fetch("{{ route('send.webhook') }}", {
                                 method: "POST",
                                headers: {
 
